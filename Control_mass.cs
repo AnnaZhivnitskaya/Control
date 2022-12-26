@@ -4,16 +4,26 @@ Console.WriteLine("Введите строковые значения элеме
 
 string[] words = Console.ReadLine()!.Split(' ');
 
-void CorrectMass(string[] arr)
-{ 
-    for(int i = 0; i <arr.Length; i++)
-       {
-    if(arr[i].Length <= 3)
-    Console.Write($"{arr[i]} ");
+string[] CorrectMass(string[] arr)
+{
+    string[] arr2 = new string[0];
+    for (int i = 0; i < arr.Length; i++)
+    {
+        if (arr[i].Length <= 3)
+        arr2 = arr2.Append(arr[i]).ToArray();
     }
+    return arr2;
 }
-Console.WriteLine();
-CorrectMass(words);
-Console.WriteLine();
 
+void Print(string[] arrey)
+{
+    int begin = arrey.Length;
+    for (int i = 0; i < begin; i++)
+    {
+        Console.Write($"{arrey[i]} ");
+    }
+    Console.WriteLine();
+}
 
+string[] arr_1_new = CorrectMass(words);
+Print(arr_1_new);
